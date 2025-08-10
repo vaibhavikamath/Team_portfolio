@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tapasya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #ffffff;
+            color: #0d47a1;
+            line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        body.dark-mode {
+            background: #121212;
+            color: #e0e0e0;
+        }
+        /* Galaxy header styles */
+        
+        header {
+            position: relative;
+            height: 100vh;
+            background: radial-gradient(circle at center, #2196f3, #0d47a1);
+            /* Sky gradient */
+            color: white;
+            overflow: hidden;
+            text-align: center;
+            padding-top: 10rem;
+            transition: background 0.3s;
+        }
+        /* Galaxy starry background */
+        
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            animation: moveStars 100s infinite linear;
+            pointer-events: none;
+        }
+        
+        .stars .star {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+        
+        .star:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            width: 2px;
+            height: 2px;
+            animation-duration: 2s;
+        }
+        
+        .star:nth-child(2) {
+            top: 30%;
+            left: 40%;
+            width: 3px;
+            height: 3px;
+            animation-duration: 3s;
+        }
+        
+        .star:nth-child(3) {
+            top: 50%;
+            left: 60%;
+            width: 1px;
+            height: 1px;
+            animation-duration: 1.5s;
+        }
+        
+        .star:nth-child(4) {
+            top: 70%;
+            left: 20%;
+            width: 2px;
+            height: 2px;
+            animation-duration: 2.5s;
+        }
+        
+        .star:nth-child(5) {
+            top: 80%;
+            left: 50%;
+            width: 3px;
+            height: 3px;
+            animation-duration: 3.5s;
+        }
+        
+        .star:nth-child(6) {
+            top: 60%;
+            left: 70%;
+            width: 1px;
+            height: 1px;
+            animation-duration: 2s;
+        }
+        
+        @keyframes moveStars {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(100%);
+            }
+        }
+        
+        @keyframes twinkle {
+            0%,
+            100% {
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+        
+        .toggle-mode {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #ffffff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #0d47a1;
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        body.dark-mode .toggle-mode {
+            background: #333333;
+            color: #ffffff;
+        }
+        
+        body.dark-mode .toggle-mode i {
+            color: #ffffff;
+        }
+        
+        .profile-pic {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid #ffffff;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.25);
+            transition: transform 0.4s ease-in-out;
+        }
+        
+        .profile-pic:hover {
+            transform: scale(1.1);
+        }
+        
+        .name {
+            margin-top: 1.5rem;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #0d47a1;
+            transition: all 1s ease-in-out;
+        }
+        
+        .about {
+            margin-top: 1.5rem;
+            font-size: 1.3rem;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 2.5rem 2rem;
+            background: #ffffff;
+            border-left: 8px solid #0d47a1;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(13, 71, 161, 0.15);
+            color: blue;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease-in-out;
+        }
+        
+        body.dark-mode .about {
+            background: #1e1e1e;
+            color: #e0e0e0;
+        }
+        
+        section {
+            padding: 4rem 1rem;
+        }
+        
+        .skills,
+        .education,
+        .project,
+        .contact {
+            max-width: 1100px;
+            margin: 3rem auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 18px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-in-out;
+        }
+        
+        h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: #0d47a1;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #2196f3;
+            margin: 0.5rem auto 0;
+            border-radius: 5px;
+        }
+        
+        .skill-category {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .skill-category details {
+            background: #f5faff;
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            box-shadow: 0 4px 15px rgba(13, 71, 161, 0.1);
+            color: #0d47a1;
+        }
+        
+        .skill-category details summary {
+            font-weight: 600;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        
+        .education h3 {
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            color: #0d47a1;
+            font-size: 1.4rem;
+        }
+        
+        .project ul li,
+        .contact p {
+            margin-bottom: 1rem;
+            color: #0d47a1;
+        }
+        
+        .contact a {
+            color: #0d47a1;
+            font-weight: 500;
+            text-decoration: underline;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: #0d47a1;
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .skills,
+            .education,
+            .project,
+            .contact {
+                padding: 1.5rem;
+            }
+            .profile-pic {
+                width: 160px;
+                height: 160px;
+            }
+            .name {
+                font-size: 2.2rem;
+            }
+        }
+        
+        .visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="stars">
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+        </div>
+        <!-- Stars animation layer -->
+        <button class="toggle-mode" onclick="toggleDarkMode()">
+            <i class="bi bi-moon-fill"></i> <!-- Dark mode icon -->
+        </button>
+        <input type="file" accept="image/*" onchange="loadImage(event)" style="display:none" id="upload">
+        <img src="WhatsApp Image 2025-04-30 at 9.01.05 PM.jpeg" alt="Profile Picture" class="profile-pic" id="profile-pic" onclick="document.getElementById('upload').click()">
+        <h1 class="name">Tapasya S Bangera</h1>
+        <p class="about">Welcome to my portfolio! I'm a passionate developer eager to build impactful digital experiences. Let's explore my journey together.</p>
+    </header>
+
+    <section class="skills">
+        <h2><i class="bi bi-lightning-charge-fill"></i> Skills</h2>
+        <div class="skill-category">
+            <details>
+                <summary>Frontend Development</summary>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                </ul>
+            </details>
+            <details>
+                <summary>Backend Development</summary>
+                <ul>
+                    <li>Python</li>
+                    <li>C</li>
+                    <li>C++</li>
+                    <li>SQL</li>
+                </ul>
+            </details>
+            <details>
+                <summary>Other Skills</summary>
+                <ul>
+                    <li>Git</li>
+                    <li>Data Structures</li>
+                </ul>
+            </details>
+        </div>
+    </section>
+
+    <section class="education">
+        <h2><i class="bi bi-mortarboard-fill"></i> Education</h2>
+        <h3>NMAMIT,Nitte</h3>
+        <p>Bachelor's in AI and Robotics Science </p>
+        <h3>Shri Ventarmana English Medium School Kundapuar</h3>
+        <p>Higher Secondary </p>
+    </section>
+
+    <section class="project">
+        <h2><i class="bi bi-code-slash"></i> Projects</h2>
+        <ul>
+            <li><strong>Project One:</strong> Portfolio</li>
+
+        </ul>
+    </section>
+
+    <section class="contact">
+        <h2><i class="bi bi-person-lines-fill"></i> Contact Me</h2>
+        <p>Email: tapasyasbangera@gmail.com</p>
+        <p>Phone: +916362522680</p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile">linkedin.com/in/yourprofile</a></p>
+    </section>
+
+    <!-- <footer>
+        <p>&copy; 2025 Tapasyasbangera. All rights reserved.</p>
+    </footer> -->
+
+    <script>
+        const loadImage = (event) => {
+            const profilePic = document.getElementById('profile-pic');
+            profilePic.src = URL.createObjectURL(event.target.files[0]);
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.name, .about, .skills, .education, .project, .contact').forEach(el => {
+            observer.observe(el);
+        });
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.querySelector('.toggle-mode i');
+            icon.classList.toggle('bi-sun-fill'); // Switch to sun icon in dark mode
+            icon.classList.toggle('bi-moon-fill'); // Switch to moon icon in light mode
+        }
+    </script>
+    <a style=" display: inline-block;
+  margin: 20px;
+  padding: 10px 20px;
+  background-color: #2a1e85;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+" href="index.html" class="back-button">← Back to Team</a>
+
+</body>
+
+</html>

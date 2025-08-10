@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tejas</title>
+    <style>
+        body {
+            background-color: rgb(13, 10, 10);
+            color: rgb(224, 211, 224);
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+        img {
+            width: 200px;
+            border-radius: 50%;
+            display: block;
+            margin: 20px auto;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .section {
+            padding: 10px;
+            border-bottom: 1px solid rgb(208, 183, 208);
+        }
+        .contact {
+            text-align: center;
+        }
+ body { font-family: Arial, sans-serif; }
+        .tabs { display: flex; cursor: pointer; }
+        .tab { padding: 10px; border: 1px solid #ccc; margin-right: 5px; }
+        .content { display: none; padding: 10px; border: 1px solid #ccc; margin-top: 5px; }
+        .active { display: block; }
+    </style>
+    <script>
+        function showTab(tabIndex) {
+            let contents = document.getElementsByClassName('content');
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].classList.remove('active');
+            }
+            contents[tabIndex].classList.add('active');
+        }
+function submitFeedback() {
+            let feedback = document.getElementById('feedbackText').value;
+            if (feedback.trim() === "") {
+                alert("Please enter your feedback before submitting.");
+            } else {
+                alert("Thank you for your feedback!");
+                document.getElementById('feedbackText').value = "";
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div class="container">
+        <h1> TEJAS</h1>
+
+        <!-- Profile Picture -->
+        <div class="section">
+            <img src="tejas.jpg" alt="Student Photo">
+        </div>
+
+                     <!-- About Section -->
+        <div class="section">
+            <h2>About Me</h2>
+            <p>Hello! I’m Tejas, a first-year student pursuing Robotics and Engineering. I have always been fascinated by the way machines come to life through innovation and technology, and I’m eager to explore the limitless possibilities in this field.
+From designing intelligent systems to programming autonomous robots, I’m passionate about learning how technology can shape the future. I enjoy problem-solving, working on creative engineering projects, and collaborating with like-minded individuals.
+Whether it’s coding, building, or brainstorming ideas, I’m constantly seeking ways to expand my knowledge and refine my technical skills. Excited to be on this journey of discovery and invention!
+        </p>
+        </div>
+
+
+    <h2>Project Section</h2>
+    <div class="tabs">
+        <div class="tab" onclick="showTab(0)">Project </div>
+        <div class="tab" onclick="showTab(1)">Programming Languages</div>
+        <div class="tab" onclick="showTab(2)">IT Constructs</div>
+    </div>
+
+    <div class="content active">
+        <h3>Project</h3>
+        <p> PORTFOLIO Website.</p>
+    </div>
+    <div class="content">
+        <h3>Programming Languages</h3>
+            <p>C,Python,HTML</p>
+    </div>
+    <div class="content">
+        <h3>IT Constucts</h3>
+             <p>MySQL,C++</p>
+    </div>
+
+    </style>
+</head>
+<body>
+
+    
+
+        <!-- Qualifications -->
+        <div class="section">
+            <h2>Qualifications</h2>
+            <ul>
+                <li>SSLC</li>
+                <li>School:Popular Bunts English Medium High School,MALAVOOR,BAJPE</li>
+
+                <li>Sujects:SCIENCE,SOCIAL,ENGLISH,KANNADA,HINDI,MATHS</li>
+<li>Percentage:94%</li>
+<li>Year:2010-2022</li>
+            </ul>
+<ul>
+                <li>PUC</li>
+                <li>College:SHREE DURGA PARAMESHWARI TEMPLE PU COLLEGE,KATEEL</li>
+                <li>Sujects:PHYSICS,CHEMISTRY,COMPUTER SCIENCE,ENGLISH,KANNADA,,MATHS</li>
+<li>Percentage:89%</li>
+<li>Year:2022-2024
+            </ul>
+ <ul>
+                <li>B.TECH</li>
+                <li>University:NMAMIT,NITTE</li>
+                <li>1st SEM SUBJECTS:CYBER SECURITY,CALCUS MATHS,QUANTUM PHYSICS,BIO,EVS,BASIC ELECTONICS,C PROGRAM</li>
+<li>SGPA=8.89</li>
+<li>2nd SEM SUBJECTS:ADLD,BEE,ENGLISH,DISCRETE MATHS,PYTHON PROGRAM,CHEMISTRY,COI</li>
+<li>Year:2024-2028</li>
+            </ul>
+
+        </div>
+
+        <!-- Skills -->
+        <div class="section">
+            <h2>Skills</h2>
+            <ul>
+               <li>Experimentor</li>
+<li>Problem decoder</li>
+<li>Solutionist</li>
+
+ <div class="feedback-section">
+        <h3>Feedback</h3>
+        <textarea id="feedbackText" placeholder="Name="></textarea><br>
+ <textarea id="feedbackText" placeholder="Email="></textarea><br>
+ <textarea id="feedbackText" placeholder="Message="></textarea><br>
+
+        <button onclick="submitFeedback()">Submit</button>
+    </div>
+
+       
+
+        <!-- Contact -->
+        <div class="section contact">
+            <h2>Contact Me</h2>
+            <p>Email: teju78@gmail.com</p>
+            <p>Phone: +919611644088</p>
+            <p>LinkedIn: <a href="#" style="color:dark purple;">linkedin.com/in/student</a></p>
+        </div>
+    </div>
+<a style=" display: inline-block;
+  margin: 20px;
+  padding: 10px 20px;
+  background-color: #38598b;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+" href="index.html" class="back-button">← Back to Team</a>
+
+
+</body>
+</html>
